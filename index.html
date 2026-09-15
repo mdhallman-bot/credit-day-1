@@ -47,9 +47,15 @@ button.primary{background:var(--accent);color:white;border-color:var(--accent)}b
 
 <h2>1. Would You Borrow It?</h2>
 <span class="tag">Opening decision</span>
-<div class="prompt"><strong>Your teacher will show you a purchase and several ways to pay for it.</strong> Do not wait for a vocabulary lesson. Make your first decision with what you know right now.</div>
-<textarea id="openingChoice" placeholder="Which option would you choose right now, and why? What information are you paying attention to?"></textarea>
-
+<div class="prompt"><strong>The purchase:</strong> You need a <strong>$1,200 laptop</strong> for school and work. You have enough savings to buy it today, but doing that would use a large part of your savings.</div>
+<div class="grid2">
+<div class="card"><h3>Option A — Pay Today</h3><p><strong>$1,200 today</strong> using debit/cash.</p><p class="smalltext">No debt. Your savings drops immediately.</p></div>
+<div class="card"><h3>Option B — 12-Month Financing</h3><p><strong>$108/month for 12 months</strong></p><p class="smalltext">Scheduled total: <strong>$1,296</strong>.</p></div>
+<div class="card"><h3>Option C — 24-Month Financing</h3><p><strong>$58/month for 24 months</strong></p><p class="smalltext">Scheduled total: <strong>$1,392</strong>.</p></div>
+<div class="card"><h3>Option D — Credit Card</h3><p>Put <strong>$1,200</strong> on a card at <strong>24% APR</strong>.</p><p class="smalltext">Final cost depends on how quickly you repay the balance.</p></div>
+</div>
+<div class="prompt">Which option would you choose right now, and why? What information are you paying attention to?</div>
+<textarea id="openingChoice" placeholder="I would choose Option ___ because..."></textarea>
 <h2>2. Credit Deal Detective</h2>
 <span class="tag">Get the offer information from the room</span>
 <p class="smalltext"><strong>Do not stay seated for this.</strong> Your teacher has the actual offers. For each one, record only what you notice and what makes you cautious. You will revisit these after we name the loan terms.</p>
@@ -58,13 +64,15 @@ button.primary{background:var(--accent);color:white;border-color:var(--accent)}b
   <div class="card"><h3>Offer B</h3><textarea id="dd-B-notice" class="tiny" placeholder="What stands out?"></textarea><textarea id="dd-B-concern" class="tiny" placeholder="What question or concern do you have?"></textarea></div>
   <div class="card"><h3>Offer C</h3><textarea id="dd-C-notice" class="tiny" placeholder="What stands out?"></textarea><textarea id="dd-C-concern" class="tiny" placeholder="What question or concern do you have?"></textarea></div>
   <div class="card"><h3>Offer D</h3><textarea id="dd-D-notice" class="tiny" placeholder="What stands out?"></textarea><textarea id="dd-D-concern" class="tiny" placeholder="What question or concern do you have?"></textarea></div>
+<div class="card"><h3>Offer E</h3><textarea id="dd-E-notice" class="tiny" placeholder="What stands out?"></textarea><textarea id="dd-E-concern" class="tiny" placeholder="What question or concern do you have?"></textarea></div>
 </div>
 <div class="prompt">After the class discussion: what information would you now check before saying a borrowing offer is a “good deal”?</div>
 <textarea id="dd-rethink" class="short" placeholder="Revise your thinking here..."></textarea>
 
 <h2>3. Sort It: What Kind of Payment Is This?</h2>
 <span class="tag">Self-checking sort</span>
-<p class="smalltext">Sort each example as <strong>installment credit</strong>, <strong>revolving credit</strong>, or <strong>not credit</strong>. You get three checks. The first two checks tell you only how many are correct. The third reveals the answers and locks the sort.</p>
+<div class="grid3"><div class="card"><h3>Installment Credit</h3><p>Borrow a <strong>set amount</strong> and repay it through scheduled payments over a set period.</p></div><div class="card"><h3>Revolving Credit</h3><p>Borrow up to a <strong>credit limit</strong>, repay, and use available credit again.</p></div><div class="card"><h3>Not Credit</h3><p>Use <strong>money you already have</strong> rather than borrowing.</p></div></div>
+<p class="smalltext">Use the definitions above to sort each example as <strong>installment credit</strong>, <strong>revolving credit</strong>, or <strong>not credit</strong>. You get three checks. The first two checks tell you only how many are correct. The third reveals the answers and locks the sort.</p>
 <div id="sortPool"></div>
 <div class="sort-grid">
   <div class="sort-col"><h4>Installment Credit</h4><div id="sort-installment"></div></div>
@@ -74,35 +82,24 @@ button.primary{background:var(--accent);color:white;border-color:var(--accent)}b
 <div id="sort-controls"><button id="checkSortBtn" type="button">Check My Sort</button> <span id="sortStatus" class="status"></span></div>
 
 <h2>4. Loan Variable Lab</h2>
-<span class="tag">Change one thing at a time</span>
-<div class="prompt">Start with a <strong>$20,000 loan at 7% APR for 48 months with no fees.</strong> Use the controls below to change <strong>one variable at a time</strong>. Watch what happens to the estimated monthly payment and total repayment.</div>
-<div class="grid3">
-  <div><label>Amount borrowed ($)</label><input id="labPrincipal" type="number" min="100" max="100000" step="100" value="20000"></div>
-  <div><label>APR (%)</label><input id="labApr" type="number" min="0" max="40" step=".1" value="7"></div>
-  <div><label>Term (months)</label><select id="labTerm"><option>24</option><option>36</option><option selected>48</option><option>60</option><option>72</option><option>84</option></select></div>
-</div>
-<div class="panel" id="labResults"></div>
-<button id="resetLabBtn" type="button">Reset to Starting Loan</button>
-<button id="recordLabBtn" class="primary" type="button">Record This Change</button>
-<div class="tablewrap">
-<table>
-<thead><tr><th>Trial</th><th>What did you change?</th><th>Monthly payment</th><th>Total repayment</th><th>What happened / why?</th></tr></thead>
-<tbody id="labTableBody"></tbody>
-</table>
-</div>
-<div class="prompt">After at least three trials, write the biggest pattern you noticed.</div>
-<textarea id="labTakeaway" class="short" placeholder="Example starter: When I changed ___, I noticed ___ because..."></textarea>
-
-<h2>5. Physical Credit Card Sort — Accountability</h2>
-<span class="tag">The cards are NOT on this page</span>
-<p class="smalltext">Your group needs the paper cards from your teacher. Use this section to document the reasoning your group used.</p>
-<div class="prompt">What rule did your group use first to sort the cards?</div><textarea id="pc-firstRule" class="short"></textarea>
-<div class="prompt">Which card caused the most disagreement? What were the competing ideas?</div><textarea id="pc-hardestCard" class="short"></textarea>
-<div class="prompt">Choose one card and explain the evidence that tells you where it belongs. Use vocabulary from today when possible.</div><textarea id="pc-evidence" class="short"></textarea>
-
+<span class="tag">APR up · APR down · term up · term down</span>
+<div class="prompt">Start with a <strong>$20,000 loan at 7% APR for 48 months with no fees.</strong> Complete all four required changes. Change only APR or term, record what happened, and reset between trials.</div>
+<div class="grid2"><div><label>APR (%)</label><input id="labApr" type="number" min="0" max="40" step=".1" value="7"></div><div><label>Term (months)</label><select id="labTerm"><option>24</option><option>36</option><option selected>48</option><option>60</option><option>72</option><option>84</option></select></div></div>
+<div class="panel" id="labResults"></div><button id="resetLabBtn" type="button">Reset to Starting Loan</button><button id="recordLabBtn" class="primary" type="button">Record This Change</button>
+<div class="tablewrap"><table><thead><tr><th>Required change</th><th>Value tested</th><th>Monthly payment</th><th>Total repayment</th><th>What happened / why?</th></tr></thead><tbody id="labTableBody"></tbody></table></div>
+<div class="prompt"><strong>What I noticed:</strong> After all four changes, summarize the biggest pattern or tradeoff you noticed.</div><textarea id="labTakeaway" class="short" placeholder="When APR/term changed, I noticed..."></textarea>
+<h2>5. Secured or Unsecured? Digital Sort</h2>
+<span class="tag">Self-checking digital sort</span>
+<div class="grid2"><div class="card"><h3>Secured Credit</h3><p>Backed by <strong>collateral</strong> — property the lender may claim if the borrower defaults.</p></div><div class="card"><h3>Unsecured Credit</h3><p>No specific property is pledged as collateral.</p></div></div>
+<p class="smalltext">Sort all eight cards. You get three checks; the first two give only the number correct and the third reveals and locks.</p>
+<div id="secureSortPool"></div><div class="sort-grid" style="grid-template-columns:1fr 1fr"><div class="sort-col"><h4>Secured Credit</h4><div id="secure-secured"></div></div><div class="sort-col"><h4>Unsecured Credit</h4><div id="secure-unsecured"></div></div></div>
+<button id="checkSecureBtn" type="button">Check My Sort</button> <span id="secureStatus" class="status"></span>
+<div class="prompt">What rule did you use first to sort the cards?</div><textarea id="pc-firstRule" class="short"></textarea>
+<div class="prompt">Which card caused the most disagreement or made you think the hardest? What were the competing ideas?</div><textarea id="pc-hardestCard" class="short"></textarea>
+<div class="prompt">Choose one card and explain the evidence that tells you where it belongs. Use <strong>secured, unsecured, collateral,</strong> or <strong>default</strong> when appropriate.</div><textarea id="pc-evidence" class="short"></textarea>
 <h2>6. The $20,000 Car Trap</h2>
 <span class="tag">Rank five financing deals</span>
-<div class="prompt">Every option finances the <strong>same $20,000 car</strong>. Rank the deals from <strong>1 = best</strong> to <strong>5 = worst</strong>. “Best” means the strongest overall borrowing deal — not simply the lowest monthly payment.</div>
+<div class="prompt">Every option finances the <strong>same $20,000 car</strong>. Rank the deals from <strong>1 = best for the borrower you are imagining</strong> to <strong>5 = worst</strong>. There is not one automatic “correct” ranking because affordability can matter. Your reasoning must use the numbers in the table.</div>
 <div class="tablewrap">
 <table>
 <thead><tr><th>Deal</th><th>APR</th><th>Term</th><th>Fee</th><th>Est. monthly payment</th><th>Est. total paid</th></tr></thead>
@@ -110,16 +107,16 @@ button.primary{background:var(--accent);color:white;border-color:var(--accent)}b
 </table>
 </div>
 <div id="carRanks"></div>
-<button id="checkCarBtn" type="button">Check My Ranking</button> <span id="carStatus" class="status"></span>
+<div class="note"><strong>No automatic ranking check:</strong> A strong ranking can depend on the borrower’s budget. Defend your ranking with APR, term, fees, monthly payment, and total repayment.</div>
 <div class="prompt">Defend your ranking. What mattered most? Identify at least one deal that looks attractive at first but becomes less attractive when you examine total cost.</div>
 <textarea id="carReasoning"></textarea>
 
 <h2>7. Four Corners: What Matters Most?</h2>
-<span class="tag">Move first — summarize afterward</span>
-<p class="smalltext">Your teacher will give the scenarios and the four choices in the room. This page intentionally does not.</p>
-<div class="prompt">After the activity, summarize how your thinking changed. When might monthly payment matter most? When might APR, term, or total cost matter more?</div>
-<textarea id="fourCorners" placeholder="Summarize the tradeoffs you discussed..."></textarea>
-
+<span class="tag">Choose here — then move in the room</span>
+<div class="prompt"><strong>When comparing borrowing offers, which factor do you think should matter MOST?</strong></div>
+<div class="card"><label><input type="radio" name="fourChoice" value="APR"> APR — annualized borrowing cost</label><br><label><input type="radio" name="fourChoice" value="Monthly payment"> Monthly payment — what must fit the budget now</label><br><label><input type="radio" name="fourChoice" value="Loan term"> Loan term — how long you stay in debt</label><br><label><input type="radio" name="fourChoice" value="Total repayment"> Total repayment — everything paid back altogether</label></div>
+<p class="smalltext">Click your answer first. Your teacher will then have you move to that corner and defend your choice. You may change your mind after discussion.</p>
+<div class="prompt">After the activity, summarize how your thinking changed. When might monthly payment matter most? When might APR, term, or total repayment matter more?</div><textarea id="fourCorners" placeholder="Summarize the tradeoffs you discussed..."></textarea>
 <h2>8. Bad Financial Advice Clinic</h2>
 <span class="tag">Diagnose it, then rewrite it</span>
 <div id="badAdviceWrap"></div>
@@ -128,8 +125,8 @@ button.primary{background:var(--accent);color:white;border-color:var(--accent)}b
 <div class="note"><strong>Exit ticket:</strong> Your teacher will give you a separate Google Form. It is not built into this page.</div>
 <button id="submitBtn" class="primary" type="button">Submit for Review</button>
 <button id="pdfBtn" type="button" disabled>Print / Save Record as PDF</button>
-<button id="emergency" type="button">Emergency PDF Backup</button>
 <div id="completionArea"></div>
+<div style="height:760px" aria-hidden="true"></div><details class="note"><summary><strong>Technical problem only</strong></summary><p class="smalltext">Use this only if Submit for Review is not working after you completed the assignment. This backup does not show a reviewed completion status.</p><button id="emergency" type="button">Emergency PDF Backup</button></details>
 
 <div id="printSummary" class="printonly hidden"></div>
 </div>
@@ -145,6 +142,9 @@ let submittedResult = null;
 let sortAttempts = 0;
 let sortRevealed = false;
 let sortAnswers = {};
+let secureSortAttempts = 0;
+let secureSortRevealed = false;
+let secureSortAnswers = {};
 let labRows = [];
 
 const SORT_ITEMS = [
@@ -158,6 +158,16 @@ const SORT_ITEMS = [
   {id:'cash', text:'Paying cash for a used laptop', correct:'notcredit'},
   {id:'gift', text:'Using a prepaid gift card', correct:'notcredit'}
 ];
+
+const SECURE_SORT_ITEMS = [
+{id:'auto-sec',text:'Auto loan — the vehicle can be repossessed after default',correct:'secured'},
+{id:'mort-sec',text:'Home mortgage — the home backs the loan',correct:'secured'},
+{id:'scc-sec',text:'Secured credit card — backed by a cash deposit',correct:'secured'},
+{id:'hel-sec',text:'Home equity loan — backed by the borrower’s home',correct:'secured'},
+{id:'cc-unsec',text:'Typical credit card with no collateral pledged',correct:'unsecured'},
+{id:'pl-unsec',text:'Unsecured personal loan with no property pledged',correct:'unsecured'},
+{id:'student-unsec',text:'Student loan with no specific property pledged',correct:'unsecured'},
+{id:'line-unsec',text:'Unsecured personal line of credit',correct:'unsecured'}];
 
 const CAR_DEALS = [
   {id:'A', apr:4.9, months:36, fee:0},
@@ -259,36 +269,15 @@ function checkSort(){
   scheduleSave();
 }
 
-function updateLab(){
-  const m=loanMetrics(val('labPrincipal'),val('labApr'),val('labTerm'),0);
-  document.getElementById('labResults').innerHTML='<strong>Estimated monthly payment:</strong> '+money(m.monthly)+' &nbsp; | &nbsp; <strong>Estimated total repayment:</strong> '+money(m.total)+'<br><span class="status">Estimate assumes a fixed-rate amortizing loan and no fees.</span>';
-}
-function resetLab(){document.getElementById('labPrincipal').value=20000;document.getElementById('labApr').value=7;document.getElementById('labTerm').value=48;updateLab();}
-function recordLab(){
-  if(labRows.length>=5){alert('You already recorded five trials. Use your table to write the takeaway.');return;}
-  const principal=Number(val('labPrincipal')),apr=Number(val('labApr')),months=Number(val('labTerm'));
-  if(!(principal>0)||apr<0||!(months>0)){alert('Use valid loan values first.');return;}
-  const base=loanMetrics(20000,7,48,0),now=loanMetrics(principal,apr,months,0);
-  const changed=[];
-  if(principal!==20000)changed.push('amount borrowed');
-  if(apr!==7)changed.push('APR');
-  if(months!==48)changed.push('term');
-  if(changed.length!==1){alert('For this lab, change exactly ONE variable from the starting loan before recording.');return;}
-  const row={changed:changed[0]+' → '+(changed[0]==='amount borrowed'?money(principal):changed[0]==='APR'?apr+'%':months+' months'),
-    paymentEffect:(now.monthly>base.monthly?'increased':'decreased')+' to '+money(now.monthly),
-    totalEffect:(now.total>base.total?'increased':'decreased')+' to '+money(now.total),
-    explanation:''};
-  labRows.push(row);renderLabRows();scheduleSave();
-}
-function renderLabRows(){
-  const body=document.getElementById('labTableBody');body.innerHTML='';
-  labRows.forEach((r,i)=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML='<td>'+(i+1)+'</td><td>'+esc(r.changed)+'</td><td>'+esc(r.paymentEffect)+'</td><td>'+esc(r.totalEffect)+'</td><td><textarea class="tiny lab-explain" data-i="'+i+'" placeholder="Explain the pattern...">'+esc(r.explanation||'')+'</textarea></td>';
-    body.appendChild(tr);
-  });
-  body.querySelectorAll('.lab-explain').forEach(t=>t.addEventListener('input',e=>{labRows[Number(e.target.dataset.i)].explanation=e.target.value;scheduleSave();}));
-}
+function updateLab(){const m=loanMetrics(20000,val('labApr'),val('labTerm'),0),base=loanMetrics(20000,7,48,0);document.getElementById('labResults').innerHTML='<strong>Starting loan:</strong> '+money(base.monthly)+'/month; '+money(base.total)+' total.<br><strong>Current settings:</strong> '+money(m.monthly)+'/month; '+money(m.total)+' total.<br><span class="status">Principal stays fixed at $20,000.</span>';}
+function resetLab(){document.getElementById('labApr').value=7;document.getElementById('labTerm').value=48;updateLab();}
+function labDirection(apr,months){if(apr>7&&months===48)return 'APR up';if(apr<7&&months===48)return 'APR down';if(months>48&&apr===7)return 'Term up';if(months<48&&apr===7)return 'Term down';return '';}
+function recordLab(){const apr=Number(val('labApr')),months=Number(val('labTerm'));const direction=labDirection(apr,months);if(!direction){alert('Change exactly ONE thing from the starting loan: APR up, APR down, term up, or term down.');return;}const base=loanMetrics(20000,7,48,0),now=loanMetrics(20000,apr,months,0);const row={direction,changed:direction.startsWith('APR')?apr+'%':months+' months',paymentEffect:(now.monthly>base.monthly?'increased':'decreased')+' to '+money(now.monthly),totalEffect:(now.total>base.total?'increased':'decreased')+' to '+money(now.total),explanation:''};const i=labRows.findIndex(x=>x.direction===direction);if(i>=0)labRows[i]=row;else labRows.push(row);renderLabRows();scheduleSave();}
+function renderLabRows(){const order=['APR up','APR down','Term up','Term down'],body=document.getElementById('labTableBody');body.innerHTML='';order.forEach(direction=>{const r=labRows.find(x=>x.direction===direction),tr=document.createElement('tr');tr.innerHTML=r?'<td><strong>'+esc(direction)+'</strong></td><td>'+esc(r.changed)+'</td><td>'+esc(r.paymentEffect)+'</td><td>'+esc(r.totalEffect)+'</td><td><textarea class="tiny lab-explain" data-direction="'+esc(direction)+'" placeholder="Explain what happened...">'+esc(r.explanation||'')+'</textarea></td>':'<td><strong>'+esc(direction)+'</strong></td><td colspan="3" class="status">Manipulate the controls, then click Record This Change.</td><td>—</td>';body.appendChild(tr);});body.querySelectorAll('.lab-explain').forEach(t=>t.addEventListener('input',e=>{const r=labRows.find(x=>x.direction===e.target.dataset.direction);if(r)r.explanation=e.target.value;scheduleSave();}));}
+
+function secureLabel(c){return c==='secured'?'Secured':c==='unsecured'?'Unsecured':'';}
+function renderSecureSort(){['secureSortPool','secure-secured','secure-unsecured'].forEach(id=>document.getElementById(id).innerHTML='');SECURE_SORT_ITEMS.forEach(item=>{const card=document.createElement('div');card.className='sort-card';const text=document.createElement('div');text.textContent=item.text;card.appendChild(text);const assigned=secureSortAnswers[item.id];if(secureSortRevealed){const ok=assigned===item.correct;card.classList.add(ok?'correct':'incorrect');const s=document.createElement('div');s.className='status '+(ok?'good':'bad');s.textContent=ok?'✓ Correct':'Correct: '+secureLabel(item.correct);card.appendChild(s);}else{const wrap=document.createElement('div');['secured','unsecured'].forEach(cat=>{const b=document.createElement('button');b.type='button';b.textContent=secureLabel(cat);b.addEventListener('click',()=>{secureSortAnswers[item.id]=cat;renderSecureSort();scheduleSave();});wrap.appendChild(b);});card.appendChild(wrap);}const target=assigned?document.getElementById('secure-'+assigned):document.getElementById('secureSortPool');target.appendChild(card);});document.getElementById('checkSecureBtn').disabled=secureSortRevealed;document.getElementById('secureStatus').textContent=secureSortRevealed?'Answers revealed and locked.':secureSortAttempts+' of '+MAX_SORT_ATTEMPTS+' checks used.';}
+function checkSecureSort(){if(Object.keys(secureSortAnswers).length<SECURE_SORT_ITEMS.length){document.getElementById('secureStatus').textContent='Sort all eight examples before checking.';return;}secureSortAttempts++;const correct=SECURE_SORT_ITEMS.filter(x=>secureSortAnswers[x.id]===x.correct).length;if(secureSortAttempts>=MAX_SORT_ATTEMPTS){secureSortRevealed=true;renderSecureSort();document.getElementById('secureStatus').textContent=correct+' of '+SECURE_SORT_ITEMS.length+' correct. Answers revealed and locked.';}else document.getElementById('secureStatus').textContent=correct+' of '+SECURE_SORT_ITEMS.length+' are correct. Revise without answer-by-answer clues.';scheduleSave();}
 
 function renderCars(){
   const body=document.getElementById('carTableBody');body.innerHTML='';
@@ -306,16 +295,6 @@ function carRanking(){
   const pairs=CAR_DEALS.map(d=>({id:d.id,rank:Number(val('rank-'+d.id))||0})).filter(x=>x.rank);
   pairs.sort((a,b)=>a.rank-b.rank);return pairs.map(x=>x.id);
 }
-function checkCar(){
-  const ranking=carRanking();const ranks=CAR_DEALS.map(d=>Number(val('rank-'+d.id))||0);
-  if(ranking.length!==5||new Set(ranks).size!==5){document.getElementById('carStatus').textContent='Use each rank 1–5 exactly once.';return;}
-  const totals=CAR_DEALS.map(d=>({id:d.id,total:loanMetrics(20000,d.apr,d.months,d.fee).total})).sort((a,b)=>a.total-b.total);
-  const ideal=totals.map(x=>x.id);
-  const exact=ranking.every((x,i)=>x===ideal[i]);
-  document.getElementById('carStatus').textContent=exact?'Your ranking matches lowest total repayment → highest total repayment. Now defend it.':'Recheck the total repayment column. A low payment or low APR by itself may be misleading.';
-  scheduleSave();
-}
-
 function renderBadAdvice(){
   const w=document.getElementById('badAdviceWrap');w.innerHTML='';
   BAD_ADVICE.forEach(x=>{
@@ -326,7 +305,7 @@ function renderBadAdvice(){
 }
 
 function collect(){
-  const dd={};['A','B','C','D'].forEach(k=>dd[k]={notice:val('dd-'+k+'-notice'),concern:val('dd-'+k+'-concern')});dd.rethink=val('dd-rethink');
+  const dd={};['A','B','C','D','E'].forEach(k=>dd[k]={notice:val('dd-'+k+'-notice'),concern:val('dd-'+k+'-concern')});dd.rethink=val('dd-rethink');
   const pc={firstRule:val('pc-firstRule'),hardestCard:val('pc-hardestCard'),evidence:val('pc-evidence')};
   const ba={};BAD_ADVICE.forEach(x=>ba[x.id]={wrong:val('ba-'+x.id+'-wrong'),rewrite:val('ba-'+x.id+'-rewrite')});
   return {
@@ -334,27 +313,28 @@ function collect(){
     dealDetective:dd,
     creditSort:{answers:sortAnswers,attempts:sortAttempts,revealed:sortRevealed},
     variableLab:{rows:labRows,bigTakeaway:val('labTakeaway')},
-    physicalCards:pc,
+    physicalCards:{...pc,answers:secureSortAnswers,attempts:secureSortAttempts,revealed:secureSortRevealed},
     carTrap:{ranking:carRanking(),reasoning:val('carReasoning')},
+    fourChoice:(document.querySelector('input[name="fourChoice"]:checked')||{}).value||'',
     fourCorners:val('fourCorners'),
     badAdvice:ba
   };
 }
 function restore(d){
   document.getElementById('openingChoice').value=d.openingChoice||'';
-  const dd=d.dealDetective||{};['A','B','C','D'].forEach(k=>{const x=dd[k]||{};document.getElementById('dd-'+k+'-notice').value=x.notice||'';document.getElementById('dd-'+k+'-concern').value=x.concern||'';});document.getElementById('dd-rethink').value=dd.rethink||'';
+  const dd=d.dealDetective||{};['A','B','C','D','E'].forEach(k=>{const x=dd[k]||{};document.getElementById('dd-'+k+'-notice').value=x.notice||'';document.getElementById('dd-'+k+'-concern').value=x.concern||'';});document.getElementById('dd-rethink').value=dd.rethink||'';
   const cs=d.creditSort||{};sortAnswers=cs.answers||{};sortAttempts=Number(cs.attempts||0);sortRevealed=!!cs.revealed;renderSort();
   const lab=d.variableLab||{};labRows=Array.isArray(lab.rows)?lab.rows:[];document.getElementById('labTakeaway').value=lab.bigTakeaway||'';renderLabRows();
-  const pc=d.physicalCards||{};document.getElementById('pc-firstRule').value=pc.firstRule||'';document.getElementById('pc-hardestCard').value=pc.hardestCard||'';document.getElementById('pc-evidence').value=pc.evidence||'';
+  const pc=d.physicalCards||{};secureSortAnswers=pc.answers||{};secureSortAttempts=Number(pc.attempts||0);secureSortRevealed=!!pc.revealed;renderSecureSort();document.getElementById('pc-firstRule').value=pc.firstRule||'';document.getElementById('pc-hardestCard').value=pc.hardestCard||'';document.getElementById('pc-evidence').value=pc.evidence||'';
   const car=d.carTrap||{};(car.ranking||[]).forEach((id,i)=>{const el=document.getElementById('rank-'+id);if(el)el.value=String(i+1);});document.getElementById('carReasoning').value=car.reasoning||'';
-  document.getElementById('fourCorners').value=d.fourCorners||'';
+  if(d.fourChoice){const fc=[...document.querySelectorAll('input[name="fourChoice"]')].find(x=>x.value===d.fourChoice);if(fc)fc.checked=true;}document.getElementById('fourCorners').value=d.fourCorners||'';
   const ba=d.badAdvice||{};BAD_ADVICE.forEach(x=>{const z=ba[x.id]||{};document.getElementById('ba-'+x.id+'-wrong').value=z.wrong||'';document.getElementById('ba-'+x.id+'-rewrite').value=z.rewrite||'';});
   submittedResult=d.checklist?{complete:d.complete,passedCount:d.passedCount,total:d.totalChecks,checklist:d.checklist,feedback:d.feedback}:null;
   if(submittedResult){showReview(submittedResult);document.getElementById('pdfBtn').disabled=false;}
 }
 
 function showReview(data){
-  const labels={openingChoice:'Opening decision',dealDetective:'Credit Deal Detective',creditSort:'Credit sort',variableLab:'Loan Variable Lab',physicalCardAccountability:'Physical card-sort documentation',carTrapRanking:'Car Trap ranking + reasoning',fourCorners:'Four Corners summary',badAdviceClinic:'Bad Financial Advice Clinic'};
+  const labels={openingChoice:'Opening decision',dealDetective:'Credit Deal Detective',creditSort:'Credit sort',variableLab:'Loan Variable Lab',physicalCardAccountability:'Secured/unsecured digital sort + reasoning',carTrapRanking:'Car Trap ranking + reasoning',fourCorners:'Four Corners summary',badAdviceClinic:'Bad Financial Advice Clinic'};
   let missing='';Object.keys(data.checklist||{}).forEach(k=>{if(!data.checklist[k])missing+='<li>'+labels[k]+'</li>';});
   let fb='';if(data.feedback)fb='<div class="panel"><strong>Strengths:</strong> '+esc(data.feedback.strengths)+'<br><br><strong>One thing to strengthen:</strong> '+esc(data.feedback.improve)+'</div>';
   else fb='<div class="panel">Narrative feedback is unavailable right now. Your completion check still works.</div>';
@@ -373,12 +353,12 @@ function buildPrintSummary(){
   if(r){html+='<div class="completion '+(r.complete?'pass':'incomplete')+'"><strong>COMPLETION STATUS: '+(r.complete?'COMPLETE':'INCOMPLETE')+' ('+r.passedCount+'/'+r.total+')</strong></div>';if(r.feedback)html+='<p><strong>Strengths:</strong> '+esc(r.feedback.strengths)+'</p><p><strong>Improve:</strong> '+esc(r.feedback.improve)+'</p>';}
   else html+='<div class="completion incomplete"><strong>EMERGENCY BACKUP — NOT SUBMITTED FOR REVIEW</strong></div>';
   html+='<h2>1. Opening Decision</h2><p>'+esc(c.openingChoice)+'</p><h2>2. Credit Deal Detective</h2>';
-  ['A','B','C','D'].forEach(k=>html+='<p><strong>Offer '+k+':</strong> '+esc(c.dealDetective[k].notice)+'<br><strong>Concern:</strong> '+esc(c.dealDetective[k].concern)+'</p>');
+  ['A','B','C','D','E'].forEach(k=>html+='<p><strong>Offer '+k+':</strong> '+esc(c.dealDetective[k].notice)+'<br><strong>Concern:</strong> '+esc(c.dealDetective[k].concern)+'</p>');
   html+='<p><strong>Revised thinking:</strong> '+esc(c.dealDetective.rethink)+'</p><h2>3. Credit Sort</h2>';
   SORT_ITEMS.forEach(x=>html+='<p>'+esc(x.text)+' — <strong>'+esc(labelCat(sortAnswers[x.id]||'notcredit'))+'</strong></p>');
   html+='<h2>4. Loan Variable Lab</h2>';c.variableLab.rows.forEach((x,i)=>html+='<p><strong>Trial '+(i+1)+':</strong> '+esc(x.changed)+'; payment '+esc(x.paymentEffect)+'; total '+esc(x.totalEffect)+'; '+esc(x.explanation)+'</p>');
-  html+='<p><strong>Takeaway:</strong> '+esc(c.variableLab.bigTakeaway)+'</p><h2>5. Physical Card Sort</h2><p>'+esc(c.physicalCards.firstRule)+'</p><p>'+esc(c.physicalCards.hardestCard)+'</p><p>'+esc(c.physicalCards.evidence)+'</p>';
-  html+='<h2>6. $20,000 Car Trap</h2><p><strong>Ranking:</strong> '+esc(c.carTrap.ranking.join(' → '))+'</p><p>'+esc(c.carTrap.reasoning)+'</p><h2>7. Four Corners</h2><p>'+esc(c.fourCorners)+'</p><h2>8. Bad Financial Advice Clinic</h2>';
+  html+='<p><strong>What I noticed:</strong> '+esc(c.variableLab.bigTakeaway)+'</p><h2>5. Secured / Unsecured Digital Sort</h2>';SECURE_SORT_ITEMS.forEach(x=>html+='<p>'+esc(x.text)+' — <strong>'+esc(secureLabel((c.physicalCards.answers||{})[x.id]||''))+'</strong></p>');html+='<p><strong>Sorting rule:</strong> '+esc(c.physicalCards.firstRule)+'</p><p><strong>Hardest card:</strong> '+esc(c.physicalCards.hardestCard)+'</p><p><strong>Evidence:</strong> '+esc(c.physicalCards.evidence)+'</p>';
+  html+='<h2>6. $20,000 Car Trap</h2><p><strong>Ranking:</strong> '+esc(c.carTrap.ranking.join(' → '))+'</p><p>'+esc(c.carTrap.reasoning)+'</p><h2>7. Four Corners</h2><p><strong>Initial choice:</strong> '+esc(c.fourChoice)+'</p><p>'+esc(c.fourCorners)+'</p><h2>8. Bad Financial Advice Clinic</h2>';
   BAD_ADVICE.forEach(x=>html+='<p><strong>'+x.id.toUpperCase()+':</strong> '+esc(c.badAdvice[x.id].wrong)+'<br><strong>Better advice:</strong> '+esc(c.badAdvice[x.id].rewrite)+'</p>');
   document.getElementById('printSummary').innerHTML=html;
 }
@@ -390,15 +370,15 @@ function printPdf(requireReview){
 document.getElementById('startBtn').addEventListener('click',startSession);
 document.getElementById('resetIdBtn').addEventListener('click',resetId);
 document.getElementById('checkSortBtn').addEventListener('click',checkSort);
+document.getElementById('checkSecureBtn').addEventListener('click',checkSecureSort);
 document.getElementById('resetLabBtn').addEventListener('click',resetLab);
 document.getElementById('recordLabBtn').addEventListener('click',recordLab);
-document.getElementById('checkCarBtn').addEventListener('click',checkCar);
 document.getElementById('submitBtn').addEventListener('click',submitWork);
 document.getElementById('pdfBtn').addEventListener('click',()=>printPdf(true));
 document.getElementById('emergency').addEventListener('click',()=>printPdf(false));
-['labPrincipal','labApr','labTerm'].forEach(id=>document.getElementById(id).addEventListener('input',updateLab));
+['labApr','labTerm'].forEach(id=>document.getElementById(id).addEventListener('input',updateLab));
 
-renderSort();renderCars();renderBadAdvice();updateLab();
+renderSort();renderSecureSort();renderCars();renderBadAdvice();updateLab();
 
 document.getElementById('workspace').addEventListener('input',e=>{
   if(e.target.id==='studentId')return;
