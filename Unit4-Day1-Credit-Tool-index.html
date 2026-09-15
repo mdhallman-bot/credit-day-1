@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 4 Day 1 — Credit & Borrowing Fundamentals</title>
+<style>
+:root{--ink:#24313a;--muted:#64727c;--line:#d7dee3;--panel:#f6f8f9;--accent:#315d73;--good:#2f6f48;--warn:#9a6420;--bad:#9a3d38}
+*{box-sizing:border-box} body{max-width:980px;margin:0 auto;padding:24px 18px 80px;font-family:Georgia,serif;color:var(--ink);line-height:1.45}
+h1,h2,h3,h4,button,label,input,select,.subtitle,.tag,.note,.status,.smalltext{font-family:Arial,sans-serif}
+h1{font-size:2rem;margin-bottom:4px} h2{border-bottom:2px solid var(--accent);padding-bottom:7px;margin-top:36px}
+h3{margin:18px 0 8px} .subtitle{color:var(--muted);margin-bottom:18px}.tag{display:inline-block;background:#e9f0f3;color:var(--accent);padding:4px 8px;border-radius:999px;font-size:.78rem;font-weight:700}
+.note,.panel,.card{border:1px solid var(--line);border-radius:8px;padding:14px;margin:12px 0}.note{background:#f8fafb}.panel{background:var(--panel)}.card{background:white}
+.prompt{border-left:5px solid var(--accent);background:#f5f8fa;padding:12px 14px;margin:10px 0}
+textarea,input[type=text],input[type=number],select{width:100%;font:16px Arial,sans-serif;padding:10px;border:1px solid #b8c2c9;border-radius:6px;margin:5px 0 8px}
+textarea{min-height:82px;resize:vertical}.short{min-height:62px}.tiny{min-height:48px}
+button{border:1px solid #9aa7af;border-radius:6px;background:white;padding:9px 13px;margin:4px 5px 4px 0;cursor:pointer;font-weight:700}
+button.primary{background:var(--accent);color:white;border-color:var(--accent)}button:disabled{opacity:.5;cursor:not-allowed}
+.idbar{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:end}.idbar input{margin:0}.status{font-size:.82rem;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sort-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.sort-col{border:1px solid var(--line);border-radius:8px;padding:10px;min-height:130px}.sort-col h4{text-align:center;margin:2px 0 8px}
+.sort-card{border:1px solid #bcc6cc;border-radius:7px;padding:10px;margin:7px 0;background:white}.sort-card.correct{border-color:var(--good);background:#eef7f1}.sort-card.incorrect{border-color:var(--bad);background:#fbefee}
+.rank-row{display:grid;grid-template-columns:52px 1fr;gap:8px;align-items:center;margin:7px 0}.rank-row select{margin:0}
+.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:720px;font-family:Arial,sans-serif;font-size:.9rem}th,td{border:1px solid var(--line);padding:8px;vertical-align:top}th{background:#edf2f4}
+.good{color:var(--good)}.bad{color:var(--bad)}.warning{color:var(--warn)}.hidden{display:none}.completion{padding:14px;border-radius:8px;margin-top:12px}.completion.pass{background:#eaf6ee;border:1px solid #9dc8aa}.completion.incomplete{background:#fff4e7;border:1px solid #d6ad72}
+@media(max-width:720px){.grid2,.grid3,.sort-grid{grid-template-columns:1fr}.idbar{grid-template-columns:1fr}.rank-row{grid-template-columns:46px 1fr}}
+@media print{body>*{display:none!important}#workspace{display:block!important}#workspace>*{display:none!important}#printSummary{display:block!important}body{max-width:none;padding:0 20px}.printonly{display:block!important}}
+</style>
+</head>
+<body>
+<h1>Unit 4, Day 1: Credit & Borrowing Fundamentals</h1>
+<div class="subtitle">Class companion — the important information is in the room. This page is where you record, test, and revise your thinking.</div>
+
+<div class="note instructions">
+<strong>How today works:</strong> Use your assigned code name, then click <strong>Start / Load</strong>. Your code name locks for this session. Work through each section only when your teacher sends you there. Near the end, submit for review, then print/save your record as a PDF and upload it to Google Classroom.
+</div>
+
+<div class="idbar">
+  <div><label for="studentId">Assigned code name — not your real name</label><input id="studentId" type="text" autocomplete="off" placeholder="e.g. Falcon217"></div>
+  <button id="startBtn" class="primary" type="button">Start / Load</button>
+  <button id="resetIdBtn" type="button" disabled>Change code</button>
+</div>
+<div id="idStatus" class="status">Your workspace stays locked until you start a session.</div>
+<div id="saveStatus" class="status"></div>
+
+<div id="workspace" class="hidden">
+
+<h2>1. Would You Borrow It?</h2>
+<span class="tag">Opening decision</span>
+<div class="prompt"><strong>Your teacher will show you a purchase and several ways to pay for it.</strong> Do not wait for a vocabulary lesson. Make your first decision with what you know right now.</div>
+<textarea id="openingChoice" placeholder="Which option would you choose right now, and why? What information are you paying attention to?"></textarea>
+
+<h2>2. Credit Deal Detective</h2>
+<span class="tag">Get the offer information from the room</span>
+<p class="smalltext"><strong>Do not stay seated for this.</strong> Your teacher has the actual offers. For each one, record only what you notice and what makes you cautious. You will revisit these after we name the loan terms.</p>
+<div class="grid2">
+  <div class="card"><h3>Offer A</h3><textarea id="dd-A-notice" class="tiny" placeholder="What stands out?"></textarea><textarea id="dd-A-concern" class="tiny" placeholder="What question or concern do you have?"></textarea></div>
+  <div class="card"><h3>Offer B</h3><textarea id="dd-B-notice" class="tiny" placeholder="What stands out?"></textarea><textarea id="dd-B-concern" class="tiny" placeholder="What question or concern do you have?"></textarea></div>
+  <div class="card"><h3>Offer C</h3><textarea id="dd-C-notice" class="tiny" placeholder="What stands out?"></textarea><textarea id="dd-C-concern" class="tiny" placeholder="What question or concern do you have?"></textarea></div>
+  <div class="card"><h3>Offer D</h3><textarea id="dd-D-notice" class="tiny" placeholder="What stands out?"></textarea><textarea id="dd-D-concern" class="tiny" placeholder="What question or concern do you have?"></textarea></div>
+</div>
+<div class="prompt">After the class discussion: what information would you now check before saying a borrowing offer is a “good deal”?</div>
+<textarea id="dd-rethink" class="short" placeholder="Revise your thinking here..."></textarea>
+
+<h2>3. Sort It: What Kind of Payment Is This?</h2>
+<span class="tag">Self-checking sort</span>
+<p class="smalltext">Sort each example as <strong>installment credit</strong>, <strong>revolving credit</strong>, or <strong>not credit</strong>. You get three checks. The first two checks tell you only how many are correct. The third reveals the answers and locks the sort.</p>
+<div id="sortPool"></div>
+<div class="sort-grid">
+  <div class="sort-col"><h4>Installment Credit</h4><div id="sort-installment"></div></div>
+  <div class="sort-col"><h4>Revolving Credit</h4><div id="sort-revolving"></div></div>
+  <div class="sort-col"><h4>Not Credit</h4><div id="sort-notcredit"></div></div>
+</div>
+<div id="sort-controls"><button id="checkSortBtn" type="button">Check My Sort</button> <span id="sortStatus" class="status"></span></div>
+
+<h2>4. Loan Variable Lab</h2>
+<span class="tag">Change one thing at a time</span>
+<div class="prompt">Start with a <strong>$20,000 loan at 7% APR for 48 months with no fees.</strong> Use the controls below to change <strong>one variable at a time</strong>. Watch what happens to the estimated monthly payment and total repayment.</div>
+<div class="grid3">
+  <div><label>Amount borrowed ($)</label><input id="labPrincipal" type="number" min="100" max="100000" step="100" value="20000"></div>
+  <div><label>APR (%)</label><input id="labApr" type="number" min="0" max="40" step=".1" value="7"></div>
+  <div><label>Term (months)</label><select id="labTerm"><option>24</option><option>36</option><option selected>48</option><option>60</option><option>72</option><option>84</option></select></div>
+</div>
+<div class="panel" id="labResults"></div>
+<button id="resetLabBtn" type="button">Reset to Starting Loan</button>
+<button id="recordLabBtn" class="primary" type="button">Record This Change</button>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Trial</th><th>What did you change?</th><th>Monthly payment</th><th>Total repayment</th><th>What happened / why?</th></tr></thead>
+<tbody id="labTableBody"></tbody>
+</table>
+</div>
+<div class="prompt">After at least three trials, write the biggest pattern you noticed.</div>
+<textarea id="labTakeaway" class="short" placeholder="Example starter: When I changed ___, I noticed ___ because..."></textarea>
+
+<h2>5. Physical Credit Card Sort — Accountability</h2>
+<span class="tag">The cards are NOT on this page</span>
+<p class="smalltext">Your group needs the paper cards from your teacher. Use this section to document the reasoning your group used.</p>
+<div class="prompt">What rule did your group use first to sort the cards?</div><textarea id="pc-firstRule" class="short"></textarea>
+<div class="prompt">Which card caused the most disagreement? What were the competing ideas?</div><textarea id="pc-hardestCard" class="short"></textarea>
+<div class="prompt">Choose one card and explain the evidence that tells you where it belongs. Use vocabulary from today when possible.</div><textarea id="pc-evidence" class="short"></textarea>
+
+<h2>6. The $20,000 Car Trap</h2>
+<span class="tag">Rank five financing deals</span>
+<div class="prompt">Every option finances the <strong>same $20,000 car</strong>. Rank the deals from <strong>1 = best</strong> to <strong>5 = worst</strong>. “Best” means the strongest overall borrowing deal — not simply the lowest monthly payment.</div>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Deal</th><th>APR</th><th>Term</th><th>Fee</th><th>Est. monthly payment</th><th>Est. total paid</th></tr></thead>
+<tbody id="carTableBody"></tbody>
+</table>
+</div>
+<div id="carRanks"></div>
+<button id="checkCarBtn" type="button">Check My Ranking</button> <span id="carStatus" class="status"></span>
+<div class="prompt">Defend your ranking. What mattered most? Identify at least one deal that looks attractive at first but becomes less attractive when you examine total cost.</div>
+<textarea id="carReasoning"></textarea>
+
+<h2>7. Four Corners: What Matters Most?</h2>
+<span class="tag">Move first — summarize afterward</span>
+<p class="smalltext">Your teacher will give the scenarios and the four choices in the room. This page intentionally does not.</p>
+<div class="prompt">After the activity, summarize how your thinking changed. When might monthly payment matter most? When might APR, term, or total cost matter more?</div>
+<textarea id="fourCorners" placeholder="Summarize the tradeoffs you discussed..."></textarea>
+
+<h2>8. Bad Financial Advice Clinic</h2>
+<span class="tag">Diagnose it, then rewrite it</span>
+<div id="badAdviceWrap"></div>
+
+<h2>Finishing Today's Class</h2>
+<div class="note"><strong>Exit ticket:</strong> Your teacher will give you a separate Google Form. It is not built into this page.</div>
+<button id="submitBtn" class="primary" type="button">Submit for Review</button>
+<button id="pdfBtn" type="button" disabled>Print / Save Record as PDF</button>
+<button id="emergency" type="button">Emergency PDF Backup</button>
+<div id="completionArea"></div>
+
+<div id="printSummary" class="printonly hidden"></div>
+</div>
+
+<script>
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwjsIWUA6qkMkDb4mtZPmpzHQAmrWpiZPgEySc61ZVr2moU2Namuy9hBS4L6f186uiPLg/exec';
+const SHARED_SECRET = 'u4d1-credit-2026-9f4c7b';
+const MAX_SORT_ATTEMPTS = 3;
+
+let lockedStudentId = '';
+let saveTimer = null;
+let submittedResult = null;
+let sortAttempts = 0;
+let sortRevealed = false;
+let sortAnswers = {};
+let labRows = [];
+
+const SORT_ITEMS = [
+  {id:'auto', text:'A car loan repaid with scheduled monthly payments', correct:'installment'},
+  {id:'mortgage', text:'A home mortgage with a set repayment schedule', correct:'installment'},
+  {id:'personal', text:'A $3,000 personal loan repaid over 24 months', correct:'installment'},
+  {id:'card', text:'A credit card you can repay and use again up to its limit', correct:'revolving'},
+  {id:'store', text:'A store credit line that can be reused after repayment', correct:'revolving'},
+  {id:'gas', text:'A gas-station credit account with a reusable limit', correct:'revolving'},
+  {id:'debit', text:'A debit-card purchase taken directly from checking', correct:'notcredit'},
+  {id:'cash', text:'Paying cash for a used laptop', correct:'notcredit'},
+  {id:'gift', text:'Using a prepaid gift card', correct:'notcredit'}
+];
+
+const CAR_DEALS = [
+  {id:'A', apr:4.9, months:36, fee:0},
+  {id:'B', apr:5.9, months:48, fee:0},
+  {id:'C', apr:6.9, months:60, fee:0},
+  {id:'D', apr:7.9, months:72, fee:0},
+  {id:'E', apr:4.5, months:60, fee:850}
+];
+
+const BAD_ADVICE = [
+  {id:'a', text:'“Take the longest loan. The payment is lower, so it is automatically the cheapest deal.”'},
+  {id:'b', text:'“If a lender approves you for the loan, that proves you can afford it.”'},
+  {id:'c', text:'“APR is all you need to compare. Fees and the length of the loan do not really matter.”'},
+  {id:'d', text:'“A credit card is basically the same as a debit card because both can be tapped at a store.”'}
+];
+
+function money(n){return Number(n).toLocaleString(undefined,{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2});}
+function val(id){const el=document.getElementById(id);return el?el.value:'';}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));}
+function normalizeId(s){return String(s||'').trim().toLowerCase();}
+function payment(principal, apr, months){
+  principal=Number(principal); apr=Number(apr); months=Number(months);
+  if(!(principal>0)||!(months>0)||apr<0)return 0;
+  const r=apr/1200;
+  return r===0 ? principal/months : principal*r/(1-Math.pow(1+r,-months));
+}
+function loanMetrics(principal,apr,months,fee=0){
+  const p=payment(principal,apr,months);
+  return {monthly:p,total:p*months+Number(fee||0)};
+}
+
+async function backend(action,payload={},silent=false){
+  if(!lockedStudentId){if(!silent)alert('Start or load your session first.');return null;}
+  if(APPS_SCRIPT_URL.includes('PASTE_')){if(!silent)alert('Teacher setup is not finished: add the deployed Apps Script URL in the HTML.');return null;}
+  try{
+    const r=await fetch(APPS_SCRIPT_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({secret:SHARED_SECRET,action,studentId:lockedStudentId,...payload})});
+    return await r.json();
+  }catch(e){if(!silent)alert('Could not reach the class save service. Your work is still on this page.');return null;}
+}
+
+async function startSession(){
+  const raw=val('studentId').trim();
+  const status=document.getElementById('idStatus');
+  if(raw.length<3){status.textContent='Enter the full assigned code name first.';return;}
+  lockedStudentId=raw;
+  document.getElementById('studentId').disabled=true;
+  document.getElementById('startBtn').disabled=true;
+  document.getElementById('resetIdBtn').disabled=false;
+  document.getElementById('workspace').classList.remove('hidden');
+  status.textContent='Session locked to: '+raw+'. Autosave is now active.';
+  const data=await backend('load_state',{},true);
+  if(data&&data.found){restore(data);status.textContent='Saved work loaded for '+raw+'. Session is locked.';}
+  else status.textContent='New session started for '+raw+'. Session is locked.';
+}
+function resetId(){
+  if(!confirm('Change code name? Unsaved work in this browser session may no longer be connected to the same record.'))return;
+  clearTimeout(saveTimer); lockedStudentId=''; submittedResult=null;
+  document.getElementById('studentId').disabled=false;document.getElementById('studentId').value='';
+  document.getElementById('startBtn').disabled=false;document.getElementById('resetIdBtn').disabled=true;
+  document.getElementById('workspace').classList.add('hidden');
+  document.getElementById('idStatus').textContent='Workspace locked. Enter the correct assigned code name.';
+}
+function scheduleSave(){if(!lockedStudentId)return;clearTimeout(saveTimer);saveTimer=setTimeout(saveState,1800);}
+async function saveState(){
+  if(!lockedStudentId)return;
+  const data=await backend('save_state',collect(),true);
+  if(data&&data.saved)document.getElementById('saveStatus').textContent='Saved '+new Date().toLocaleTimeString();
+}
+
+function renderSort(){
+  ['sortPool','sort-installment','sort-revolving','sort-notcredit'].forEach(id=>document.getElementById(id).innerHTML='');
+  SORT_ITEMS.forEach(item=>{
+    const card=document.createElement('div');card.className='sort-card';card.id='sortcard-'+item.id;
+    const text=document.createElement('div');text.textContent=item.text;card.appendChild(text);
+    const assigned=sortAnswers[item.id];
+    if(sortRevealed){
+      const ok=assigned===item.correct;card.classList.add(ok?'correct':'incorrect');
+      const s=document.createElement('div');s.className='status '+(ok?'good':'bad');s.textContent=ok?'✓ Correct':'Correct: '+labelCat(item.correct);card.appendChild(s);
+    }else{
+      const wrap=document.createElement('div');
+      ['installment','revolving','notcredit'].forEach(cat=>{
+        const b=document.createElement('button');b.type='button';b.textContent=labelCat(cat);b.addEventListener('click',()=>{sortAnswers[item.id]=cat;renderSort();scheduleSave();});wrap.appendChild(b);
+      });
+      card.appendChild(wrap);
+    }
+    const target=assigned ? document.getElementById('sort-'+assigned) : document.getElementById('sortPool');
+    target.appendChild(card);
+  });
+  document.getElementById('checkSortBtn').disabled=sortRevealed;
+  document.getElementById('sortStatus').textContent=sortRevealed?'Answers revealed and locked.':sortAttempts+' of '+MAX_SORT_ATTEMPTS+' checks used.';
+}
+function labelCat(c){return c==='installment'?'Installment':c==='revolving'?'Revolving':'Not credit';}
+function checkSort(){
+  if(Object.keys(sortAnswers).length<SORT_ITEMS.length){document.getElementById('sortStatus').textContent='Sort all nine examples before checking.';return;}
+  sortAttempts++;
+  const correct=SORT_ITEMS.filter(x=>sortAnswers[x.id]===x.correct).length;
+  if(sortAttempts>=MAX_SORT_ATTEMPTS){sortRevealed=true;renderSort();document.getElementById('sortStatus').textContent=correct+' of '+SORT_ITEMS.length+' correct. Answers revealed and locked.';}
+  else document.getElementById('sortStatus').textContent=correct+' of '+SORT_ITEMS.length+' are correct. Revise without answer-by-answer clues.';
+  scheduleSave();
+}
+
+function updateLab(){
+  const m=loanMetrics(val('labPrincipal'),val('labApr'),val('labTerm'),0);
+  document.getElementById('labResults').innerHTML='<strong>Estimated monthly payment:</strong> '+money(m.monthly)+' &nbsp; | &nbsp; <strong>Estimated total repayment:</strong> '+money(m.total)+'<br><span class="status">Estimate assumes a fixed-rate amortizing loan and no fees.</span>';
+}
+function resetLab(){document.getElementById('labPrincipal').value=20000;document.getElementById('labApr').value=7;document.getElementById('labTerm').value=48;updateLab();}
+function recordLab(){
+  if(labRows.length>=5){alert('You already recorded five trials. Use your table to write the takeaway.');return;}
+  const principal=Number(val('labPrincipal')),apr=Number(val('labApr')),months=Number(val('labTerm'));
+  if(!(principal>0)||apr<0||!(months>0)){alert('Use valid loan values first.');return;}
+  const base=loanMetrics(20000,7,48,0),now=loanMetrics(principal,apr,months,0);
+  const changed=[];
+  if(principal!==20000)changed.push('amount borrowed');
+  if(apr!==7)changed.push('APR');
+  if(months!==48)changed.push('term');
+  if(changed.length!==1){alert('For this lab, change exactly ONE variable from the starting loan before recording.');return;}
+  const row={changed:changed[0]+' → '+(changed[0]==='amount borrowed'?money(principal):changed[0]==='APR'?apr+'%':months+' months'),
+    paymentEffect:(now.monthly>base.monthly?'increased':'decreased')+' to '+money(now.monthly),
+    totalEffect:(now.total>base.total?'increased':'decreased')+' to '+money(now.total),
+    explanation:''};
+  labRows.push(row);renderLabRows();scheduleSave();
+}
+function renderLabRows(){
+  const body=document.getElementById('labTableBody');body.innerHTML='';
+  labRows.forEach((r,i)=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML='<td>'+(i+1)+'</td><td>'+esc(r.changed)+'</td><td>'+esc(r.paymentEffect)+'</td><td>'+esc(r.totalEffect)+'</td><td><textarea class="tiny lab-explain" data-i="'+i+'" placeholder="Explain the pattern...">'+esc(r.explanation||'')+'</textarea></td>';
+    body.appendChild(tr);
+  });
+  body.querySelectorAll('.lab-explain').forEach(t=>t.addEventListener('input',e=>{labRows[Number(e.target.dataset.i)].explanation=e.target.value;scheduleSave();}));
+}
+
+function renderCars(){
+  const body=document.getElementById('carTableBody');body.innerHTML='';
+  CAR_DEALS.forEach(d=>{
+    const m=loanMetrics(20000,d.apr,d.months,d.fee);
+    const tr=document.createElement('tr');tr.innerHTML='<td><strong>'+d.id+'</strong></td><td>'+d.apr+'%</td><td>'+d.months+' months</td><td>'+money(d.fee)+'</td><td>'+money(m.monthly)+'</td><td>'+money(m.total)+'</td>';body.appendChild(tr);
+  });
+  const ranks=document.getElementById('carRanks');ranks.innerHTML='';
+  CAR_DEALS.forEach(d=>{
+    const row=document.createElement('div');row.className='rank-row';row.innerHTML='<strong>Deal '+d.id+'</strong><select id="rank-'+d.id+'"><option value="">Choose rank...</option><option value="1">1 — Best</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5 — Worst</option></select>';ranks.appendChild(row);
+  });
+  ranks.querySelectorAll('select').forEach(s=>s.addEventListener('change',scheduleSave));
+}
+function carRanking(){
+  const pairs=CAR_DEALS.map(d=>({id:d.id,rank:Number(val('rank-'+d.id))||0})).filter(x=>x.rank);
+  pairs.sort((a,b)=>a.rank-b.rank);return pairs.map(x=>x.id);
+}
+function checkCar(){
+  const ranking=carRanking();const ranks=CAR_DEALS.map(d=>Number(val('rank-'+d.id))||0);
+  if(ranking.length!==5||new Set(ranks).size!==5){document.getElementById('carStatus').textContent='Use each rank 1–5 exactly once.';return;}
+  const totals=CAR_DEALS.map(d=>({id:d.id,total:loanMetrics(20000,d.apr,d.months,d.fee).total})).sort((a,b)=>a.total-b.total);
+  const ideal=totals.map(x=>x.id);
+  const exact=ranking.every((x,i)=>x===ideal[i]);
+  document.getElementById('carStatus').textContent=exact?'Your ranking matches lowest total repayment → highest total repayment. Now defend it.':'Recheck the total repayment column. A low payment or low APR by itself may be misleading.';
+  scheduleSave();
+}
+
+function renderBadAdvice(){
+  const w=document.getElementById('badAdviceWrap');w.innerHTML='';
+  BAD_ADVICE.forEach(x=>{
+    const div=document.createElement('div');div.className='card';
+    div.innerHTML='<h3>Advice '+x.id.toUpperCase()+'</h3><div class="prompt">'+esc(x.text)+'</div><label>What is wrong with this advice?</label><textarea id="ba-'+x.id+'-wrong" class="short"></textarea><label>Rewrite it as better financial advice.</label><textarea id="ba-'+x.id+'-rewrite" class="short"></textarea>';
+    w.appendChild(div);
+  });
+}
+
+function collect(){
+  const dd={};['A','B','C','D'].forEach(k=>dd[k]={notice:val('dd-'+k+'-notice'),concern:val('dd-'+k+'-concern')});dd.rethink=val('dd-rethink');
+  const pc={firstRule:val('pc-firstRule'),hardestCard:val('pc-hardestCard'),evidence:val('pc-evidence')};
+  const ba={};BAD_ADVICE.forEach(x=>ba[x.id]={wrong:val('ba-'+x.id+'-wrong'),rewrite:val('ba-'+x.id+'-rewrite')});
+  return {
+    openingChoice:val('openingChoice'),
+    dealDetective:dd,
+    creditSort:{answers:sortAnswers,attempts:sortAttempts,revealed:sortRevealed},
+    variableLab:{rows:labRows,bigTakeaway:val('labTakeaway')},
+    physicalCards:pc,
+    carTrap:{ranking:carRanking(),reasoning:val('carReasoning')},
+    fourCorners:val('fourCorners'),
+    badAdvice:ba
+  };
+}
+function restore(d){
+  document.getElementById('openingChoice').value=d.openingChoice||'';
+  const dd=d.dealDetective||{};['A','B','C','D'].forEach(k=>{const x=dd[k]||{};document.getElementById('dd-'+k+'-notice').value=x.notice||'';document.getElementById('dd-'+k+'-concern').value=x.concern||'';});document.getElementById('dd-rethink').value=dd.rethink||'';
+  const cs=d.creditSort||{};sortAnswers=cs.answers||{};sortAttempts=Number(cs.attempts||0);sortRevealed=!!cs.revealed;renderSort();
+  const lab=d.variableLab||{};labRows=Array.isArray(lab.rows)?lab.rows:[];document.getElementById('labTakeaway').value=lab.bigTakeaway||'';renderLabRows();
+  const pc=d.physicalCards||{};document.getElementById('pc-firstRule').value=pc.firstRule||'';document.getElementById('pc-hardestCard').value=pc.hardestCard||'';document.getElementById('pc-evidence').value=pc.evidence||'';
+  const car=d.carTrap||{};(car.ranking||[]).forEach((id,i)=>{const el=document.getElementById('rank-'+id);if(el)el.value=String(i+1);});document.getElementById('carReasoning').value=car.reasoning||'';
+  document.getElementById('fourCorners').value=d.fourCorners||'';
+  const ba=d.badAdvice||{};BAD_ADVICE.forEach(x=>{const z=ba[x.id]||{};document.getElementById('ba-'+x.id+'-wrong').value=z.wrong||'';document.getElementById('ba-'+x.id+'-rewrite').value=z.rewrite||'';});
+  submittedResult=d.checklist?{complete:d.complete,passedCount:d.passedCount,total:d.totalChecks,checklist:d.checklist,feedback:d.feedback}:null;
+  if(submittedResult){showReview(submittedResult);document.getElementById('pdfBtn').disabled=false;}
+}
+
+function showReview(data){
+  const labels={openingChoice:'Opening decision',dealDetective:'Credit Deal Detective',creditSort:'Credit sort',variableLab:'Loan Variable Lab',physicalCardAccountability:'Physical card-sort documentation',carTrapRanking:'Car Trap ranking + reasoning',fourCorners:'Four Corners summary',badAdviceClinic:'Bad Financial Advice Clinic'};
+  let missing='';Object.keys(data.checklist||{}).forEach(k=>{if(!data.checklist[k])missing+='<li>'+labels[k]+'</li>';});
+  let fb='';if(data.feedback)fb='<div class="panel"><strong>Strengths:</strong> '+esc(data.feedback.strengths)+'<br><br><strong>One thing to strengthen:</strong> '+esc(data.feedback.improve)+'</div>';
+  else fb='<div class="panel">Narrative feedback is unavailable right now. Your completion check still works.</div>';
+  document.getElementById('completionArea').innerHTML='<div class="completion '+(data.complete?'pass':'incomplete')+'"><strong>'+(data.complete?'COMPLETE':'INCOMPLETE')+' — '+data.passedCount+'/'+data.total+' sections complete.</strong>'+(missing?'<p>Finish these sections, then submit again:</p><ul>'+missing+'</ul>':'')+'</div>'+fb;
+}
+async function submitWork(){
+  const btn=document.getElementById('submitBtn');btn.disabled=true;btn.textContent='Reviewing...';
+  const data=await backend('final_review',collect());
+  btn.disabled=false;btn.textContent='Submit for Review';
+  if(!data||data.error){document.getElementById('completionArea').innerHTML='<div class="completion incomplete">Review could not be completed. '+esc(data&&data.error||'Try again.')+'</div>';return;}
+  submittedResult=data;showReview(data);document.getElementById('pdfBtn').disabled=false;
+}
+function buildPrintSummary(){
+  const c=collect();const r=submittedResult;
+  let html='<h1>Unit 4 Day 1 — Credit & Borrowing Fundamentals</h1><p><strong>Code name:</strong> '+esc(lockedStudentId)+' &nbsp; <strong>Printed:</strong> '+esc(new Date().toLocaleString())+'</p>';
+  if(r){html+='<div class="completion '+(r.complete?'pass':'incomplete')+'"><strong>COMPLETION STATUS: '+(r.complete?'COMPLETE':'INCOMPLETE')+' ('+r.passedCount+'/'+r.total+')</strong></div>';if(r.feedback)html+='<p><strong>Strengths:</strong> '+esc(r.feedback.strengths)+'</p><p><strong>Improve:</strong> '+esc(r.feedback.improve)+'</p>';}
+  else html+='<div class="completion incomplete"><strong>EMERGENCY BACKUP — NOT SUBMITTED FOR REVIEW</strong></div>';
+  html+='<h2>1. Opening Decision</h2><p>'+esc(c.openingChoice)+'</p><h2>2. Credit Deal Detective</h2>';
+  ['A','B','C','D'].forEach(k=>html+='<p><strong>Offer '+k+':</strong> '+esc(c.dealDetective[k].notice)+'<br><strong>Concern:</strong> '+esc(c.dealDetective[k].concern)+'</p>');
+  html+='<p><strong>Revised thinking:</strong> '+esc(c.dealDetective.rethink)+'</p><h2>3. Credit Sort</h2>';
+  SORT_ITEMS.forEach(x=>html+='<p>'+esc(x.text)+' — <strong>'+esc(labelCat(sortAnswers[x.id]||'notcredit'))+'</strong></p>');
+  html+='<h2>4. Loan Variable Lab</h2>';c.variableLab.rows.forEach((x,i)=>html+='<p><strong>Trial '+(i+1)+':</strong> '+esc(x.changed)+'; payment '+esc(x.paymentEffect)+'; total '+esc(x.totalEffect)+'; '+esc(x.explanation)+'</p>');
+  html+='<p><strong>Takeaway:</strong> '+esc(c.variableLab.bigTakeaway)+'</p><h2>5. Physical Card Sort</h2><p>'+esc(c.physicalCards.firstRule)+'</p><p>'+esc(c.physicalCards.hardestCard)+'</p><p>'+esc(c.physicalCards.evidence)+'</p>';
+  html+='<h2>6. $20,000 Car Trap</h2><p><strong>Ranking:</strong> '+esc(c.carTrap.ranking.join(' → '))+'</p><p>'+esc(c.carTrap.reasoning)+'</p><h2>7. Four Corners</h2><p>'+esc(c.fourCorners)+'</p><h2>8. Bad Financial Advice Clinic</h2>';
+  BAD_ADVICE.forEach(x=>html+='<p><strong>'+x.id.toUpperCase()+':</strong> '+esc(c.badAdvice[x.id].wrong)+'<br><strong>Better advice:</strong> '+esc(c.badAdvice[x.id].rewrite)+'</p>');
+  document.getElementById('printSummary').innerHTML=html;
+}
+function printPdf(requireReview){
+  if(requireReview&&!submittedResult){alert('Submit for Review first. Use Emergency PDF Backup only if the review system fails.');return;}
+  buildPrintSummary();window.print();
+}
+
+document.getElementById('startBtn').addEventListener('click',startSession);
+document.getElementById('resetIdBtn').addEventListener('click',resetId);
+document.getElementById('checkSortBtn').addEventListener('click',checkSort);
+document.getElementById('resetLabBtn').addEventListener('click',resetLab);
+document.getElementById('recordLabBtn').addEventListener('click',recordLab);
+document.getElementById('checkCarBtn').addEventListener('click',checkCar);
+document.getElementById('submitBtn').addEventListener('click',submitWork);
+document.getElementById('pdfBtn').addEventListener('click',()=>printPdf(true));
+document.getElementById('emergency').addEventListener('click',()=>printPdf(false));
+['labPrincipal','labApr','labTerm'].forEach(id=>document.getElementById(id).addEventListener('input',updateLab));
+
+renderSort();renderCars();renderBadAdvice();updateLab();
+
+document.getElementById('workspace').addEventListener('input',e=>{
+  if(e.target.id==='studentId')return;
+  scheduleSave();
+});
+document.getElementById('workspace').addEventListener('change',e=>{
+  if(e.target.id==='studentId')return;
+  scheduleSave();
+});
+</script>
+</body>
+</html>
